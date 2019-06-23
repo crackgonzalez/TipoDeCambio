@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="EnviodecorreoFlowchart" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="676.666666666667,716" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="EnviodecorreoFlowchart" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="904,716" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -83,12 +83,13 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Se envia correo para informar el inicio del proceso." DisplayName="Envio de correo - Flowchart" sap:VirtualizedContainerService.HintSize="636.666666666667,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="Se envia correo para informar el inicio del proceso." DisplayName="Envio de correo - Flowchart" sap:VirtualizedContainerService.HintSize="874,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="emailBot" />
-      <Variable x:TypeArguments="x:Boolean" Name="exito" />
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="exito" />
       <Variable x:TypeArguments="x:String" Name="emailDestinatario" />
       <Variable x:TypeArguments="x:String" Name="mensajeError" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="intento" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -96,21 +97,21 @@
         <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,109</av:PointCollection>
-        <x:Double x:Key="Width">622.33333333333337</x:Double>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,123.666666666667</av:PointCollection>
+        <x:Double x:Key="Width">860</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID4</x:Reference>
+      <x:Reference>__ReferenceID1</x:Reference>
     </Flowchart.StartNode>
     <FlowStep x:Name="__ReferenceID0">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">10,373.666666666667</av:Point>
+          <av:Point x:Key="ShapeLocation">10,303.666666666667</av:Point>
           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[emailBot]" Body="[&quot;Estimados&quot; &amp; vbNewLine &amp; &#xD;&#xA;vbNewLine &amp;&#xD;&#xA;&quot;Ha comenzado la ejecución del proceso 'Tipo de Cambio' &quot; &amp; &quot; del día &quot; &amp; now.ToString(&quot;dddd dd \de MMMM \de yyyy&quot;,Globalization.CultureInfo.CreateSpecificCulture(&quot;es-ES&quot;)) &amp; &quot; a las &quot;  &amp;  now.ToString(&quot;HH:mm:ss&quot;) &amp; vbNewLine &amp;&#xD;&#xA;vbNewLine &amp;&#xD;&#xA;&quot;Saludos Cordiales&quot; &amp; vbNewLine &amp;&#xD;&#xA;vbNewLine &amp;&#xD;&#xA;&quot;Robot Crackgonzalez&quot;]" DisplayName="Enviar correo de inicio - Send Outlook Mail" sap:VirtualizedContainerService.HintSize="314,149.333333333333" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="Proceso 'Tipo de Cambio' - Inicio" To="[emailDestinatario]">
+      <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[emailBot]" Body="[&quot;Estimados&quot; &amp; vbNewLine &amp; &#xA;vbNewLine &amp;&#xA;&quot;Ha comenzado la ejecución del proceso 'Tipo de Cambio' &quot; &amp; &quot; del día &quot; &amp; now.ToString(&quot;dddd dd \de MMMM \de yyyy&quot;,Globalization.CultureInfo.CreateSpecificCulture(&quot;es-ES&quot;)) &amp; &quot; a las &quot;  &amp;  now.ToString(&quot;HH:mm:ss&quot;) &amp; vbNewLine &amp;&#xA;vbNewLine &amp;&#xA;&quot;Saludos Cordiales&quot; &amp; vbNewLine &amp;&#xA;vbNewLine &amp;&#xA;&quot;Robot Crackgonzalez&quot;]" DisplayName="Enviar correo de inicio - Send Outlook Mail" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="Proceso 'Tipo de Cambio' - Inicio" To="[emailDestinatario]">
         <ui:SendOutlookMail.Files>
           <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
         </ui:SendOutlookMail.Files>
@@ -124,9 +125,9 @@
     <FlowStep x:Name="__ReferenceID1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,203.666666666667</av:Point>
+          <av:Point x:Key="ShapeLocation">200,123.666666666667</av:Point>
           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,256.333333333333 300,296.666666666667</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,176.333333333333 300,216.666666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch sap2010:Annotation.AnnotationText="Se obtienen los assets provenientes del orquestador" DisplayName="Obtener assets - Try Catch" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
@@ -137,22 +138,30 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <TryCatch.Try>
-          <Sequence sap:VirtualizedContainerService.HintSize="222,208" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence sap:VirtualizedContainerService.HintSize="264,310" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="TC_EMAIL_BOT" DisplayName="Obtener Correo Bot - Asset" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+            <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="TC_EMAIL_BOT" DisplayName="Obtener Correo Bot - Asset" sap:VirtualizedContainerService.HintSize="242,22" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
               <ui:GetRobotAsset.Value>
                 <OutArgument x:TypeArguments="x:String">[emailBot]</OutArgument>
               </ui:GetRobotAsset.Value>
             </ui:GetRobotAsset>
-            <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="TC_EMAIL_DESTINATARIO" DisplayName="Obtener Correo Destinatario - Asset" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+            <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="TC_EMAIL_DESTINATARIO" DisplayName="Obtener Correo Destinatario - Asset" sap:VirtualizedContainerService.HintSize="242,22" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
               <ui:GetRobotAsset.Value>
                 <OutArgument x:TypeArguments="x:String">[emailDestinatario]</OutArgument>
               </ui:GetRobotAsset.Value>
             </ui:GetRobotAsset>
+            <Assign sap:VirtualizedContainerService.HintSize="242,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[intento]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[intento+1]</InArgument>
+              </Assign.Value>
+            </Assign>
           </Sequence>
         </TryCatch.Try>
         <TryCatch.Catches>
@@ -199,76 +208,66 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <av:Point x:Key="ShapeLocation">227.666666666667,296.666666666667</av:Point>
+              <av:Point x:Key="ShapeLocation">227.666666666667,216.666666666667</av:Point>
               <av:Size x:Key="ShapeSize">144.666666666667,86.6666666666667</av:Size>
               <x:String x:Key="FalseLabel">No</x:String>
               <x:String x:Key="TrueLabel">Si</x:String>
-              <av:PointCollection x:Key="TrueConnector">227.666666666667,340 110,340 110,373.666666666667</av:PointCollection>
-              <av:PointCollection x:Key="FalseConnector">372.333333333333,340 500,340 500,363.666666666667</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">227.666666666667,260 110,260 110,303.666666666667</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">372.333333333333,260 520,260 520,193.333333333333</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.False>
-            <FlowStep x:Name="__ReferenceID3">
+            <FlowDecision x:Name="__ReferenceID4" Condition="[intento &lt;=3]" DisplayName="¿Volver a intentar?" sap:VirtualizedContainerService.HintSize="102,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2" True="{x:Reference __ReferenceID1}">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">400,363.666666666667</av:Point>
-                  <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <av:Point x:Key="ShapeLocation">469,106.666666666667</av:Point>
+                  <av:Size x:Key="ShapeSize">102,86.6666666666667</av:Size>
+                  <x:String x:Key="TrueLabel">Si</x:String>
+                  <x:String x:Key="FalseLabel">No</x:String>
+                  <av:PointCollection x:Key="TrueConnector">469,150 400,150</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">571,150 660,150</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Mensaje de error - Sequence" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="314,62" sap2010:WorkflowViewState.IdRef="Assign_4">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[mensajeError]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">No fue posible enviar el correo de inicio</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:LogMessage DisplayName="Registrar Log - Log Message" sap:VirtualizedContainerService.HintSize="314,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[mensajeError]">
+              <FlowDecision.False>
+                <FlowStep x:Name="__ReferenceID3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <av:Point x:Key="ShapeLocation">660,123.666666666667</av:Point>
+                      <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-              </Sequence>
-            </FlowStep>
+                  <Sequence DisplayName="Mensaje de error - Sequence" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="314,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[mensajeError]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">No fue posible enviar el correo de inicio</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:LogMessage DisplayName="Registrar Log - Log Message" sap:VirtualizedContainerService.HintSize="314,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[mensajeError]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                  </Sequence>
+                </FlowStep>
+              </FlowDecision.False>
+            </FlowDecision>
           </FlowDecision.False>
         </FlowDecision>
       </FlowStep.Next>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID4">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">179,109</av:Point>
-          <av:Size x:Key="ShapeSize">242,62</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,171 300,203.666666666667</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <Assign sap2010:Annotation.AnnotationText="Se asigna valor por defecto True." DisplayName="Asignar valor - Assign" sap:VirtualizedContainerService.HintSize="242,62" sap2010:WorkflowViewState.IdRef="Assign_1">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:Boolean">[exito]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-        </Assign.Value>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </Assign>
-      <FlowStep.Next>
-        <x:Reference>__ReferenceID1</x:Reference>
-      </FlowStep.Next>
-    </FlowStep>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
   </Flowchart>
 </Activity>
